@@ -29,10 +29,24 @@ Para utilizar el paquete y que el módulos nos genere el csv que necesitamos (si
 env/bin/python -m spotify_data.get_tracks_with_features\
   --credentials_path credentials/spotify_credentials.json
 
+## Running Tests
+
+Para testear los posibles errores de linting en el paquete, ejecutar:
+
+```bash
+  env/bin/python -m flake8 --select F spotify_data
+```
+
+Para testear los posibles errores de typing en el paquete, ejecutar:
+
+```bash
+env/bin/python -m mypy --check-untyped-defs --ignore-missing-imports spotify_data
+```
 
 ## Documentation
 
 - [K-Means](https://en.wikipedia.org/wiki/K-means_clustering)
 - [Clustering Scikit-Learn](https://scikit-learn.org/stable/modules/generated/sklearn.cluster.KMeans.html)
 - [Scikit-Learn](https://scikit-learn.org/stable/index.html)
-- [Query Explorer](https://ga-dev-tools.appspot.com/query-explorer)
+- [Spotify API Docs](https://developer.spotify.com/documentation/web-api/reference/)
+- [How to apply K-Means](https://realpython.com/k-means-clustering-python/)

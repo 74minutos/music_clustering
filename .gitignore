@@ -1,3 +1,5 @@
 env
 .ipnyb_checkpoints
 __pycache__/
+credentials
+.mypy_cache
