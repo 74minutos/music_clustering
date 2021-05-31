@@ -10,8 +10,7 @@ def load_json(file_path: str) -> Dict:
         data = json.load(read_from_file)
         return data
 
-DECADES = ['year:1960-1969',
-    'year:1970-1979',
+DECADES = ['year:1970-1979',
     'year:1980-1989',
     'year:1990-1999',
     'year:2000-2009',
@@ -71,7 +70,7 @@ def songs_with_audio_features(credentials_path: str) -> None:
     for track in TRACKS:
         first_call_genres = SP.search(q="artist:{}".format(track['artist_name']), type='artist')
         for genre in first_call_genres['artists']['items']:
-            genres[genre['name'].replace("'", '"')] = [sub.replace("'", '"') for sub in genre['genres']]
+            genres[genre['name']] = genre['genres']
     df_with_songs['genre'] = df_with_songs['artist_name'].map(genres)
     audio_features = get_audio_features(df_with_songs['id'], SP)
     df_with_audio_features = pd.DataFrame.from_records(audio_features)
